@@ -22,4 +22,8 @@ seeing what container are running
 ```
 docker ps -a 
 ```
+look at ps to get the name of ocntainer 
+```
+docker exec -it (containername) bash
 
+ docker exec -it kind_cray bash
