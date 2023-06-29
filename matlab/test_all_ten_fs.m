@@ -6,10 +6,9 @@ function performance = test_all_ten_fs(hyp, inff, covf, meanf, likf, fs, y, cv, 
         for k = 1 : 10 
             xtrain = x(cv.training(k),:); ytrain = y(cv.training(k),:);
             xtest = x(cv.test(k),:); ytest = y(cv.test(k),:);
-            hyp2 = minimize(hyp, gp, -100, inff, meanf, covf, likf, xtrain, ytrain);
-            [ymu ,ys2 ,fmu, fs2, lp] = gp(hyp2, @infGaussLik, meanf, covf, likf, xtrain, ytrain, xtest, ytest);
+            [ymu ,ys2 ,fmu, fs2, lp] = gp(hyp, @infGaussLik, meanf, covf, likf, xtrain, ytrain, xtest, ytest);
             n = size(ytest, 1);
-            mape_values(k) = calculateMAPE(ytest, ymu, n );
+            mape_values(k) = calculateMAPE(ytest, ymu);
         end 
             performance(i) = mean(mape_values);
        end

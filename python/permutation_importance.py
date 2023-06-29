@@ -29,6 +29,8 @@ def get_importances(x, y):
     return sorted_importances_idx
 
 
+#set local path to save results
+folder_to_export_path = ""
 data = pd.read_csv('data/data_reduced.csv')
 dataP = pd.read_csv('data/data_reduced_p.csv')
 dataNP = pd.read_csv('data/data_reduced_np.csv')
@@ -64,7 +66,7 @@ print('index of p ')
 print(perP)
 print(concatenated)
 
-folder_to_export_path = "C:/Users/33789/OneDrive/Desktop/THESIS/data/data"
+
 concatenated.to_csv(os.getcwd() + '/data/rf_permutation_partitions.csv', index=False)
 
 # X_trainW, X_testW, y_trainW, y_testW = train_test_split(xW,yW, test_size=0.1, random_state=42)
